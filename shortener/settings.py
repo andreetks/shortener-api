@@ -82,7 +82,8 @@ WSGI_APPLICATION = 'shortener.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-
+# In order to use heroku's postgresql database,
+#  you need to set the DATABASE_URL and coment out the line above.
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -91,7 +92,7 @@ DATABASES = {
 }
 
 # In order to use heroku's postgresql database,
-#  you need to set the DATABASE_URL and coment out the line above.
+#  you need to set the DATABASE_URL and uncomment the line above.
 '''DATABASES = {
     'default': dj_database_url.config(
         default=config('DATABASE_URL')
