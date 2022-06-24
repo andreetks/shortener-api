@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-import dj_database_url
+# To use heroku's postgresql database, uncomment the following line:
+# import dj_database_url
 from decouple import config
 import os
 import django_on_heroku
@@ -81,19 +82,23 @@ WSGI_APPLICATION = 'shortener.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-'''DATABASES = {
+
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-'''
 
-DATABASES = {
+# In order to use heroku's postgresql database,
+#  you need to set the DATABASE_URL and coment out the line above.
+'''DATABASES = {
     'default': dj_database_url.config(
         default=config('DATABASE_URL')
     )
 }
+'''
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
